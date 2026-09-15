@@ -14,7 +14,18 @@ git commit -m "docs: 说明本次改了什么"
 git push origin main
 ```
 
-笔记本上可再 clone 一份 GitHub 远程，改完 push；再在 NAS `git pull`，避免两边各改各的。
+本机已有一份 clone：`~/Desktop/wzc-docs`（origin 暂指向 NAS）。GitHub 仓库建好后：
+
+```bash
+# 在 GitHub 网页用账号 Zhicaiwww 建私有仓库 wzc-docs（不要勾选自动加 README）
+cd /nas/nas8/users/wzc/docs
+git remote add github git@github.com:Zhicaiwww/wzc-docs.git
+git push -u github main
+
+cd ~/Desktop/wzc-docs
+git remote add github git@github.com:Zhicaiwww/wzc-docs.git
+# 日常：NAS 继续当 origin；github 只用来触发 Actions
+```
 
 建议：**NAS 为集群现用稿，GitHub 为历史与 CI。**
 
