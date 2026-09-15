@@ -4,8 +4,9 @@
 首次：云空间导入 md → 迁入知识库，并把 token 写入 feishu-mapping.json。
 再次：删除旧 wiki 节点后重新导入（飞书没有稳定的「整篇 md 覆盖」接口）。
 
-需要环境变量：FEISHU_APP_ID、FEISHU_APP_SECRET、FEISHU_SPACE_ID。
-可选：FEISHU_PARENT_NODE_TOKEN。
+个人知识库用 user_access_token（先跑 scripts/feishu_oauth.py）。
+环境变量：FEISHU_APP_ID、FEISHU_APP_SECRET、FEISHU_SPACE_ID。
+可选：FEISHU_PARENT_NODE_TOKEN、FEISHU_USER_ACCESS_TOKEN、FEISHU_REFRESH_TOKEN。
 """
 from __future__ import annotations
 
@@ -19,8 +20,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPPING_PATH = ROOT / "feishu-mapping.json"
+TOKEN_PATH = ROOT / ".feishu-user.json"
 API = os.environ.get("FEISHU_ENDPOINT", "https://open.feishu.cn").rstrip("/")
 SKIP_DIRS = {".git", ".github", "scripts", "__pycache__"}
+DEFAULT_SPACE_ID = "7685660980340067514"
+
+
+def load_env() -> None:
+    path = ROOT / ".env"
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 
 def req(method: str, url: str, token: str | None = None, body: dict | bytes | None = None, content_type: str | None = None):
@@ -45,16 +60,39 @@ def req(method: str, url: str, token: str | None = None, body: dict | bytes | No
         raise RuntimeError(f"{method} {url} -> {e.code}: {err}") from e
 
 
-def tenant_token(app_id: str, secret: str) -> str:
+def refresh_user_token(app_id: str, secret: str, refresh_token: str) -> dict:
     out = req(
         "POST",
-        f"{API}/open-apis/auth/v3/tenant_access_token/internal",
-        body={"app_id": app_id, "app_secret": secret},
+        f"{API}/open-apis/authen/v2/oauth/token",
+        body={
+            "grant_type": "refresh_token",
+            "client_id": app_id,
+            "client_secret": secret,
+            "refresh_token": refresh_token,
+        },
     )
-    token = out.get("tenant_access_token")
-    if not token:
-        raise RuntimeError(f"get tenant_access_token failed: {out}")
-    return token
+    if not out.get("access_token"):
+        raise RuntimeError(f"refresh user token failed: {out}")
+    return out
+
+
+def resolve_user_token(app_id: str, secret: str) -> str:
+    token = os.environ.get("FEISHU_USER_ACCESS_TOKEN", "").strip()
+    refresh = os.environ.get("FEISHU_REFRESH_TOKEN", "").strip()
+    stored = {}
+    if TOKEN_PATH.exists():
+        stored = json.loads(TOKEN_PATH.read_text() or "{}")
+        token = token or stored.get("access_token") or ""
+        refresh = refresh or stored.get("refresh_token") or ""
+    if token and not refresh:
+        return token
+    if not refresh:
+        raise RuntimeError("没有 user token。请先运行 python3 scripts/feishu_oauth.py")
+    out = refresh_user_token(app_id, secret, refresh)
+    merged = {**stored, **out}
+    TOKEN_PATH.write_text(json.dumps(merged, ensure_ascii=False, indent=2) + "\n")
+    os.chmod(TOKEN_PATH, 0o600)
+    return out["access_token"]
 
 
 def iter_markdown() -> list[Path]:
@@ -200,20 +238,20 @@ def wiki_delete(token: str, space_id: str, wiki_token: str) -> None:
 
 
 def main() -> int:
+    load_env()
     app_id = os.environ.get("FEISHU_APP_ID", "").strip()
     secret = os.environ.get("FEISHU_APP_SECRET", "").strip()
-    space_id = os.environ.get("FEISHU_SPACE_ID", "").strip()
+    space_id = os.environ.get("FEISHU_SPACE_ID", "").strip() or DEFAULT_SPACE_ID
     parent = os.environ.get("FEISHU_PARENT_NODE_TOKEN", "").strip()
-    if not all([app_id, secret, space_id]):
+    if not app_id or not secret:
         print(
-            "缺少 FEISHU_APP_ID / FEISHU_APP_SECRET / FEISHU_SPACE_ID。\n"
-            "在飞书开放平台建自建应用，开通云文档/知识库权限，把应用机器人加成知识库成员。\n"
-            "凭证放进 GitHub Secrets，不要写入仓库。",
+            "缺少 FEISHU_APP_ID / FEISHU_APP_SECRET。\n"
+            "复制 .env.example 为 .env 后填写，先跑 python3 scripts/feishu_oauth.py。",
             file=sys.stderr,
         )
         return 2
 
-    token = tenant_token(app_id, secret)
+    token = resolve_user_token(app_id, secret)
     mapping = {}
     if MAPPING_PATH.exists():
         mapping = json.loads(MAPPING_PATH.read_text() or "{}")

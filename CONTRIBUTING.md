@@ -29,30 +29,27 @@ git remote add github git@github.com:Zhicaiwww/wzc-docs.git
 
 建议：**NAS 为集群现用稿，GitHub 为历史与 CI。**
 
-## 2. GitHub Actions → 飞书
+## 2. 同步到飞书个人知识库
 
-路线：`push main` → workflow `Sync docs to Feishu` → `scripts/sync_feishu.py` 调开放平台，把 `.md` 导入知识库。
+「Scinetics公司文档」是**飞书个人版**知识库，不能把应用机器人加成成员。同步以 **WangCharles 的 user_access_token** 写文档。
 
-你需要先做一次飞书侧配置（本仓库无法代你点完授权）：
+知识库 `space_id`：`7685660980340067514`。
 
-1. 打开 [飞书开放平台](https://open.feishu.cn/app) → 创建**企业自建应用**。
-2. 开通权限（至少）：
-   - `drive:drive` / 云空间文件上传与导入
-   - `docs:document` / 云文档
-   - `wiki:wiki` / 知识库
-3. 应用添加**机器人**能力并发布。
-4. 在目标**知识库设置 → 成员**里，把该机器人加成可编辑成员（或管理员）。
-5. 记下知识库 `space_id`（知识库设置 URL 或 API 可查）。
-6. 在 GitHub 仓库 **Settings → Secrets and variables → Actions** 添加：
-   - `FEISHU_APP_ID`
-   - `FEISHU_APP_SECRET`
-   - `FEISHU_SPACE_ID`
-   - 可选 `FEISHU_PARENT_NODE_TOKEN`（挂到某个目录节点下）
+### 开放平台（一次性）
 
-凭证只放 Secrets，不要写入 Markdown。本地试跑可复制 `.env.example` 为 `.env`（已 gitignore）。
+1. 应用 **权限管理** 打开（用户身份）：`wiki:wiki`、`docs:document` / `docx:document`、`drive:drive` / `drive:file`、**`offline_access`**。
+2. **安全设置 → 重定向 URL** 增加：`http://127.0.0.1:8765/callback`
+3. 创建版本并发布。
 
-首次同步会生成 `feishu-mapping.json`（文档路径 ↔ 飞书 token），CI 会回写进仓库。之后同一路径会先删旧知识库节点再导入，相当于整篇替换。
+### 本机授权与第一次同步
 
-## 3. 还不能自动同步时
+```bash
+cd ~/Desktop/wzc-docs
+cp .env.example .env   # 填 FEISHU_APP_ID / FEISHU_APP_SECRET
+python3 scripts/feishu_oauth.py    # 浏览器登录飞书
+python3 scripts/sync_feishu.py
+```
 
-飞书 Secrets 未配时，Actions 会失败；**git 版本管理仍然可用**。配好 Secrets 后在 Actions 里 **Run workflow** 即可补同步。
+Token 写在 `.feishu-user.json`（已 gitignore）。不要把 App Secret、token 提交进 git。
+
+GitHub Actions 需要 Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_SPACE_ID`、`FEISHU_REFRESH_TOKEN`（oauth 成功后从 `.feishu-user.json` 的 `refresh_token` 拷贝）。refresh_token 用一次就会换新，CI 长期跑还要把新 token 写回 Secrets。
