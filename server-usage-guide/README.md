@@ -2,6 +2,8 @@
 
 集群使用指南：Linux 账号、存储路径和出站代理。
 
+实时占用与分配见同一站点的 [资源看板](/)。
+
 适用对象：登录集群的使用者。管理员与运维步骤见各目录下的 `admin.md`、`outbound-proxy.dev.md`。
 
 路径：`/nas/nas8/users/wzc/docs/server-usage-guide`（枢纽上 `/data/wzc/docs/server-usage-guide`）。上级索引：[../README.md](../README.md)。`/data/README.md` 跳转到文档树。
