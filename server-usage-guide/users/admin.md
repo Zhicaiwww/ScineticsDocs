@@ -35,27 +35,28 @@ chmod u=rwx,go=rx "/nas/nas8/users/<name>"
 
 sshd 仅接受公钥（`PasswordAuthentication no`）。`$HOME/.ssh` 须为 `700`，`authorized_keys` 须为 `600`，属主为该用户。
 
-枢纽管理员公钥：`/root/.ssh/id_rsa.pub`（注释 `root@host-10-200-1-3`）。开户后将该公钥追加到每位使用者的 `authorized_keys`，便于管理员在节点上切换到该用户排障。不要把 root 私钥写入使用者家目录或拷到使用者电脑。
+**用户钥与 root 钥分开。** 实验室共用用户公钥注释为 `7-12-16`（指纹 `SHA256:W4cX544pGRfXGg07DETEObj6ZmXNGsphpubs2r5vjWw`），只写在各用户 `$HOME/.ssh/authorized_keys`。管理员 root 钥注释为 `cluster-root-admin`，**只写在四台 `/root/.ssh/authorized_keys`**，不要写入任何用户家目录。jumpserver、节点互信等其它 root 钥保留。
 
-使用者从自己电脑登录，仍须追加**本人**公钥。仅有枢纽 root 公钥时，本机 `ssh <用户>@node-3` 仍会 `Permission denied (publickey)`。
+不要把 root 私钥放到使用者电脑或用户家目录。Cursor / ssh 日常 `User` 为本人账号；运维用单独的 root Host（本机 `node-*-root`）。
 
-对单个用户（以 `yjx` 为例），在枢纽以 root 执行：
+开户后将**用户公钥**追加到该用户 `authorized_keys`（已存在的同一公钥不重复）。使用者也可再追加本人电脑上的其它公钥。
+
+对单个用户（以 `yjx` 为例），在枢纽以 root 执行（`USER_PUB` 为用户公钥文件，不是 root 钥）：
 
 ```bash
 install -d -m 700 -o yjx -g yjx /nas/nas8/users/yjx/.ssh
 umask 077
 touch /nas/nas8/users/yjx/.ssh/authorized_keys
-grep -F -q "$(awk '{print $1, $2}' /root/.ssh/id_rsa.pub)" /nas/nas8/users/yjx/.ssh/authorized_keys \
-  || cat /root/.ssh/id_rsa.pub >> /nas/nas8/users/yjx/.ssh/authorized_keys
+grep -F -q "$(awk '{print $1, $2}' "$USER_PUB")" /nas/nas8/users/yjx/.ssh/authorized_keys \
+  || cat "$USER_PUB" >> /nas/nas8/users/yjx/.ssh/authorized_keys
 chown yjx:yjx /nas/nas8/users/yjx/.ssh/authorized_keys
 chmod 600 /nas/nas8/users/yjx/.ssh/authorized_keys
 ```
 
-对 `/nas/nas8/users` 下已开户的全部登录名（已存在的同一公钥不重复追加）：
+对 `/nas/nas8/users` 下已开户的全部登录名：
 
 ```bash
-PUB=/root/.ssh/id_rsa.pub
-KEY_BODY=$(awk '{print $1, $2}' "$PUB")
+KEY_BODY=$(awk '{print $1, $2}' "$USER_PUB")
 for home in /nas/nas8/users/*; do
   [ -d "$home" ] || continue
   name=$(basename "$home")
@@ -64,20 +65,21 @@ for home in /nas/nas8/users/*; do
   ak="$home/.ssh/authorized_keys"
   umask 077
   touch "$ak"
-  grep -F -q "$KEY_BODY" "$ak" || cat "$PUB" >> "$ak"
+  grep -F -q "$KEY_BODY" "$ak" || cat "$USER_PUB" >> "$ak"
   chown "$name:$name" "$ak"
   chmod 600 "$ak"
 done
 ```
 
-检查：
+检查（须用**用户**私钥，不能再用该钥登 root）：
 
 ```bash
 ssh-keygen -lf /nas/nas8/users/yjx/.ssh/authorized_keys
-ssh -o BatchMode=yes -i /root/.ssh/id_rsa yjx@127.0.0.1 'echo USER=$USER HOME=$HOME'
+ssh -o BatchMode=yes -o User=yjx node-3 'echo USER=$USER HOME=$HOME'
+ssh -o BatchMode=yes -o User=root -i <用户私钥> node-3 true; echo "root 应失败"
 ```
 
-预期：指纹列表含 `root@host-10-200-1-3`；枢纽上用 root 私钥可以该用户身份登录。追加本人公钥后，使用者再从本机 `ssh`。
+预期：指纹列表含 `7-12-16`；用户钥可登本人账号，不能登 `root`。
 
 ## 2. 跨节点 UID
 
@@ -125,6 +127,6 @@ getent group lab
 | `$HOME`：`755`，属主本人 | 其它用户可读不可写 |
 | `/nas/nas1/shared`：目录 `1777`，文件可全体读写 | 所有登录用户可写共享树 |
 | 禁止 root 长期写入他人 `HOME` | 属主与审计清晰。开户时写入 `authorized_keys` 后属主仍为该用户 |
-| 枢纽 root 公钥写入各用户 `authorized_keys` | 管理员可切换到该用户；使用者本机登录另追加本人公钥 |
+| 用户钥只写入用户 `authorized_keys`；root 钥只写入 `/root/.ssh` | 旧实验室钥不能再登 root |
 | `data-workspace.sh` 只导出变量 | 不 chmod、不开户 |
 | 代理与防火墙 | 见 [../network/outbound-proxy.dev.md](../network/outbound-proxy.dev.md) |
