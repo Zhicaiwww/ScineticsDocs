@@ -1,7 +1,6 @@
 # 存储 · 运维规范
 
-用户规范：[user.md](./user.md)。索引：[../README.md](../README.md)。  
-脚本：`/etc/profile.d/data-workspace.sh`。
+普通用户说明：[存储与路径](./user.md)。
 
 ---
 

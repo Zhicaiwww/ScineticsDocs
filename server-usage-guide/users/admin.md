@@ -1,6 +1,6 @@
 # 用户管理 · 运维规范
 
-用户规范：[user.md](./user.md)。索引：[../README.md](../README.md)。
+用户规范：[账号与登录](./user.md)。
 
 ## 1. 开户
 
@@ -37,9 +37,9 @@ sshd 仅接受公钥（`PasswordAuthentication no`）。`$HOME/.ssh` 须为 `700
 
 **用户钥与 root 钥分开。** 实验室共用用户公钥注释为 `7-12-16`（指纹 `SHA256:W4cX544pGRfXGg07DETEObj6ZmXNGsphpubs2r5vjWw`），只写在各用户 `$HOME/.ssh/authorized_keys`。管理员 root 钥注释为 `cluster-root-admin`，**只写在四台 `/root/.ssh/authorized_keys`**，不要写入任何用户家目录。jumpserver、节点互信等其它 root 钥保留。
 
-不要把 root 私钥放到使用者电脑或用户家目录。Cursor / ssh 日常 `User` 为本人账号；运维用单独的 root Host（本机 `node-*-root`）。
+不要把 root 私钥放到普通用户电脑或用户家目录。Cursor / ssh 日常 `User` 为本人账号；运维用单独的 root Host（本机 `node-*-root`）。
 
-开户后将**用户公钥**追加到该用户 `authorized_keys`（已存在的同一公钥不重复）。使用者也可再追加本人电脑上的其它公钥。
+开户后将**用户公钥**追加到该用户 `authorized_keys`（已存在的同一公钥不重复）。普通用户也可再追加本人电脑上的其它公钥。
 
 对单个用户（以 `yjx` 为例），在枢纽以 root 执行（`USER_PUB` 为用户公钥文件，不是 root 钥）：
 

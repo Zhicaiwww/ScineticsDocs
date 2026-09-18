@@ -1,8 +1,8 @@
-# 用户账号与家目录（使用者）
+# 账号与登录
 
-每名登录者使用独立的 Linux 账号。要使用的节点上均已注册同一套账号，同一登录名使用同一 UID 与主组 GID，因此对共享盘上的文件权限一致。开户数字见 [admin.md](./admin.md)。索引见 [README.md](./README.md)。
+每名登录者使用独立的 Linux 账号。要使用的节点上均已注册同一套账号，同一登录名使用同一 UID 与主组 GID，因此对共享盘上的文件权限一致。
 
-家目录不在各节点本地盘上。`$HOME` 固定为 `/nas/nas8/users/<用户名>`，位于**用户盘**。公共缓存与共享数据在**共享盘** `/nas/nas1/shared`。大体积数据在**公司专用盘** nas2–nas7（须白名单）。细则见 [存储（使用者）](../storage/user.md)。
+家目录不在各节点本地盘上。`$HOME` 固定为 `/nas/nas8/users/<用户名>`，位于**用户盘**。公共缓存与共享数据在**共享盘** `/nas/nas1/shared`。大体积数据在**公司专用盘** nas2–nas7（须白名单）。细则见 [存储与路径](../storage/user.md)。
 
 因此：在一台节点写入的 `$HOME` 与 `/nas` 上的数据，在其它已开户节点上是同一份文件。作业只要使用 `$HOME` 与 `/nas/...`，换节点后不必拷贝代码、环境或数据，理论上即可继续执行。不要把依赖写进只存在于某一节点本地、且未进入 `/nas` 的路径。
 
@@ -50,7 +50,7 @@ ls "$HOME"
 
 ### 权限
 
-`/nas` 默认可读、不可写。普通账号仅对 `/nas/nas1/shared` 与 `/nas/nas8/users/<本人>` 可写。白名单额外对 `/nas/nas2` … `/nas/nas7` 可写。细则见 [存储（使用者）](../storage/user.md)。
+`/nas` 默认可读、不可写。普通账号仅对 `/nas/nas1/shared` 与 `/nas/nas8/users/<本人>` 可写。白名单额外对 `/nas/nas2` … `/nas/nas7` 可写。细则见 [存储与路径](../storage/user.md)。
 
 | 对象 | 普通账号 | 白名单（`wzc`、`yjx`、`xdc`） |
 |------|----------|------------------------------|
@@ -124,5 +124,5 @@ source "$HOME/envs/llamafactory/bin/activate"
 
 ### 下一步
 
-1. 存储路径与共享缓存：[存储（使用者）](../storage/user.md)
-2. 外网下载与 `uv pip` / `git clone`：[出站代理（使用者）](../network/outbound-proxy.user.md)
+1. 存储路径与共享缓存：[存储与路径](../storage/user.md)
+2. 外网下载与 `uv pip` / `git clone`：[出站代理](../network/outbound-proxy.user.md)

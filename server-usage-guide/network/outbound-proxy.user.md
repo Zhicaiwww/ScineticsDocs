@@ -1,8 +1,6 @@
-# 出站代理（使用者）
+# 出站代理
 
-接续账号与存储说明。集群节点默认不能直连公网。不使用代理时，Cursor CLI、Claude Code 等依赖国外模型接口的工具会失败，GitHub、pip 与部分数据下载会超时或极慢。公司在枢纽上提供统一的 HTTP/SOCKS 代理。登录脚本会注入环境变量。
-
-安装与防火墙见 [outbound-proxy.dev.md](./outbound-proxy.dev.md)。索引见 [outbound-proxy.md](./outbound-proxy.md)。
+接续 [账号与登录](../users/user.md) 与 [存储与路径](../storage/user.md)。集群节点默认不能直连公网。不使用代理时，Cursor CLI、Claude Code 等依赖国外模型接口的工具会失败，GitHub、pip 与部分数据下载会超时或极慢。公司在枢纽上提供统一的 HTTP/SOCKS 代理。登录脚本会注入环境变量。
 
 ## 快速开始
 
@@ -82,7 +80,7 @@ pip install --proxy http://10.200.1.3:7890 PACKAGE
 3. 新节点若源 IP 不在 `10.200.1.0/24` 或 `10.10.10.0/24`，须由管理员写入 `clients.allow` 并更新防火墙。
 
 
-### 上游与配额（使用者需知）
+### 上游与配额（普通用户需知）
 
 集群入口仍是 `10.200.1.3:7890`。枢纽默认把境外流量送到一台美国加州中继（搬瓦工），不是你本机再配订阅。
 
@@ -95,9 +93,7 @@ pip install --proxy http://10.200.1.3:7890 PACKAGE
 | 3x-ui 单用户限额 | 目前未再切 GB，超限只会发生在 **VPS 月流量** 用尽时 |
 | 实际速度 | **下行**：枢纽实测 Cloudflare 约 **100 Mbps**（50 MB 文件）；小文件/GitHub 会更低。上行未测。不要按 2.5 Gbps 预期下载 |
 
-国内站点按规则直连，一般不走这台 VPS，不计入其中继流量。GitHub、pip、模型接口等境外访问会走中继。月流量以管理员在 KiwiVM 面板看到的用量为准；使用者侧无法从 `https_proxy` 读出剩余流量。
-
-细节与变更记录见管理员文档 [admin.md](./admin.md)。
+国内站点按规则直连，一般不走这台 VPS，不计入其中继流量。GitHub、pip、模型接口等境外访问会走中继。月流量由运维在套餐面板查看；普通用户无法从 `https_proxy` 读出剩余流量。
 
 ### Docker
 

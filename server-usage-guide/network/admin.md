@@ -2,7 +2,7 @@
 
 **适用范围：** 上游中继 VPS、3x-ui / Xray、与枢纽 mihomo 的对接。  
 **集群入口与防火墙：** [outbound-proxy.dev.md](./outbound-proxy.dev.md)。  
-**使用者：** [outbound-proxy.user.md](./outbound-proxy.user.md)。
+**普通用户：** [出站代理](./outbound-proxy.user.md)。
 
 **禁止**将订阅 URL、VLESS UUID、面板路径口令、SSH 私钥、API `secret` 写入文档树。这些只放在 VPS `/etc/x-ui/` 与枢纽 `/etc/mihomo/`。
 

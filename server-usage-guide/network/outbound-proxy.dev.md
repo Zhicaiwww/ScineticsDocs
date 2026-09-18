@@ -1,7 +1,7 @@
 # 出站代理 · 运维规范
 
 **适用范围：** 安装、变更配置、防火墙与验收。  
-**用户侧约定：** [outbound-proxy.user.md](./outbound-proxy.user.md)。
+**普通用户说明：** [出站代理](./outbound-proxy.user.md)。
 
 **禁止**将订阅 URL、VLESS UUID、API `secret` 写入本文档树；密钥仅存 `/etc/mihomo/`。
 

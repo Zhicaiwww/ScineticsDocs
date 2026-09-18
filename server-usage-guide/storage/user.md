@@ -1,8 +1,8 @@
-# 存储（使用者）
+# 存储与路径
 
-接续 [用户账号与家目录](../users/user.md)。集群把个人文件和共享文件分开放置，避免每人各下一份 Hugging Face 与 ModelScope 缓存。登录脚本会设置环境变量，使库默认写入共享缓存。访问令牌仍保存在家目录。
+接续 [账号与登录](../users/user.md)。集群把个人文件和共享文件分开放置，避免每人各下一份 Hugging Face 与 ModelScope 缓存。登录脚本会设置环境变量，使库默认写入共享缓存。访问令牌仍保存在家目录。
 
-`$HOME`（`/nas/nas8/users/<用户名>`）与 `/nas/nas1/shared` 都在共享存储上：各节点将导出盘挂到同一 `/nas/nasN`。枢纽上的导出对应关系见 [admin.md](./admin.md) 第 3 节。总则见 [README.md](./README.md)。
+`$HOME`（`/nas/nas8/users/<用户名>`）与 `/nas/nas1/shared` 都在共享存储上：各节点将导出盘挂到同一 `/nas/nasN`。作业与多机任务写 `/nas/...`；`/data`、`/data0` 仅用于本机交互。
 
 ## 快速开始
 
@@ -35,8 +35,8 @@ ls -ld "$HOME" /nas/nas1/shared
 | 集群路径 | 类型 | 本枢纽入口 | 用途 |
 |----------|------|------------|------|
 | `/nas/nas1` | 共享盘 | `/data0` | 共享数据与下载缓存。可写范围仅 `shared` |
-| `/nas/nas2` … `/nas/nas7` | 公司专用盘 | 枢纽上 `/data` 对应 nas2；其余见 [admin.md](./admin.md) | 大体积项目数据 |
-| `/nas/nas8` | 用户盘 | 见 admin 映射 | 家目录。可写范围仅 `users/<本人>` |
+| `/nas/nas2` … `/nas/nas7` | 公司专用盘 | 枢纽上 `/data` 对应 nas2 | 大体积项目数据 |
+| `/nas/nas8` | 用户盘 | `$HOME` 即 `/nas/nas8/users/<用户名>` | 家目录。可写范围仅 `users/<本人>` |
 
 `/nas` 默认只读。普通账号**仅**对以下两处可写：
 
@@ -64,7 +64,7 @@ ls -ld "$HOME" /nas/nas1/shared
 └── tools/                    可选，公共工具
 ```
 
-减少重复缓存依赖 `/etc/profile.d/data-workspace.sh`：各账号的 `HF_HOME`、`MODELSCOPE_CACHE` 等指向同一棵 `shared` 树。一名使用者已下载的 Hub 模型，其他账号再次 `from_pretrained` 时读取共享缓存，而不是再下载到各自的家目录。
+减少重复缓存依赖 `/etc/profile.d/data-workspace.sh`：各账号的 `HF_HOME`、`MODELSCOPE_CACHE` 等指向同一棵 `shared` 树。一名普通用户已下载的 Hub 模型，其他账号再次 `from_pretrained` 时读取共享缓存，而不是再下载到各自的家目录。
 
 访问令牌不放入 `shared`。`HF_TOKEN_PATH` 为 `$HOME/.config/huggingface/token`。使用 `huggingface-cli login`。不要把令牌写入系统脚本或共享目录。
 
@@ -72,7 +72,7 @@ ls -ld "$HOME" /nas/nas1/shared
 
 ### 个人文件
 
-1. 将代码、uv 环境、实验日志、Cursor 与 CLI 配置保存在 `$HOME`。目录建议见 [用户说明](../users/user.md)。
+1. 将代码、uv 环境、实验日志、Cursor 与 CLI 配置保存在 `$HOME`。目录建议见 [账号与登录](../users/user.md)。
 2. 将未公开的微调权重和数据保存在 `$HOME`，不要复制到 `shared`。
 3. 不要在 `/data`、`/data0`、`/nas/nasN` 的盘根下另建家目录。
 4. 非白名单账号不要向 `/nas/nas2` … `/nas/nas7` 写入。大体积数据且已在白名单时，再使用这些路径。
@@ -148,4 +148,4 @@ cron、systemd 与部分 CI 不读取 `profile.d`。在此类任务中设置同�
 
 ### 外网下载
 
-访问 GitHub 与部分镜像站时，使用公司出站代理。见 [出站代理（使用者）](../network/outbound-proxy.user.md)。同地域 OSS 内网通常直连，不必经过 HTTP 代理。
+访问 GitHub 与部分镜像站时，使用公司出站代理。见 [出站代理](../network/outbound-proxy.user.md)。同地域 OSS 内网通常直连，不必经过 HTTP 代理。
