@@ -11,7 +11,7 @@
 | 部分 | 目录 | 内容 |
 |------|------|------|
 | 用户 | [users/](./users/) | 账号、共享家目录、跨节点约定 |
-| 存储 | [storage/](./storage/) | `/nas` 路径、共享目录 `/nas/nas1/shared`、环境变量 |
+| 存储 | [storage/](./storage/) | 共享盘 / 公司专用盘 / 用户盘、`/nas/nas1/shared`、环境变量 |
 | 网络 | [network/](./network/) | 出站代理 |
 
 ## 从哪里开始读
