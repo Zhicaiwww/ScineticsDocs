@@ -102,7 +102,7 @@ $HOME/
 
 原因示例：conda 环境是完整前缀，安装一次 PyTorch 通常再复制数 GB；多个 `conda env` 即多份重复拷贝，依赖求解也较慢。uv 虚拟环境是轻量前缀，wheel 缓存在本用户缓存中复用。已在 `envs/llamafactory` 安装过某一版本的 `torch` 后，再建 `envs/exp2` 并安装同一版本时，通常命中缓存，无需再次从外网下载。外网下载仍须经过出站代理。
 
-集群已在 `/usr/local/bin` 安装 `uv` 与 `uvx`，登录后即可直接执行 `uv`，不必再按用户安装。`uv pip` 仍须能访问外网，见 [出站代理](../network/outbound-proxy.user.md)。
+集群已在 `/usr/local/bin` 安装 `uv` 与 `uvx`，登录后即可直接执行，不必再按用户安装。其它预装命令（Claude Code、Cursor CLI、Codex CLI、`gpustat` 等）见 [系统工具](../tools/user.md)。`uv pip` 仍须能访问外网，见 [出站代理](../network/outbound-proxy.user.md)。
 
 创建环境并安装项目（示例）：
 
@@ -126,3 +126,4 @@ source "$HOME/envs/llamafactory/bin/activate"
 
 1. 存储路径与共享缓存：[存储与路径](../storage/user.md)
 2. 外网下载与 `uv pip` / `git clone`：[出站代理](../network/outbound-proxy.user.md)
+3. 预装命令（uv、Claude Code、Cursor / Codex CLI、gpustat 等）：[系统工具](../tools/user.md)

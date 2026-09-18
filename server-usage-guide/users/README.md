@@ -1,6 +1,6 @@
 # 账号与登录
 
-**范围：** Linux 账号与共享家目录。普通用户先读 [账号与登录](./user.md)，再读 [存储与路径](../storage/user.md) 与 [出站代理](../network/outbound-proxy.user.md)。
+**范围：** Linux 账号与共享家目录。普通用户先读 [账号与登录](./user.md)，再读 [存储与路径](../storage/user.md)、[出站代理](../network/outbound-proxy.user.md) 与 [系统工具](../tools/user.md)。
 
 ## 约定摘要
 

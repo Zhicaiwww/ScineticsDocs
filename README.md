@@ -9,5 +9,5 @@
 | 项目 | 路径 |
 |------|------|
 | [资源监控](/) | GPU / 存储占用与账号分配 |
-| [使用文档](/docs/server-usage-guide/users/user) | 账号与登录、存储与路径、出站代理 |
+| [使用文档](/docs/server-usage-guide/users/user) | 账号与登录、存储与路径、出站代理、系统工具 |
 
