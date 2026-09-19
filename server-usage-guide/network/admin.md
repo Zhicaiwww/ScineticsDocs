@@ -17,7 +17,19 @@
 | 厂商 | BandwagonHost（搬瓦工），面板 KiwiVM | 购买约 3 个月 |
 | VEID | `2202335` | 面板 URL：`https://kiwivm.64clouds.com/2202335/main.php` |
 | Node | `v2718` | 物理位置 US, California |
-| 公网 IPv4 | `23.106.154.45` | 客户端与 REALITY 入站地址 |
+| 公网 IPv4 | `23.106.154.45` | 旧中继（月流量已用尽，保留作备用） |
+
+### 1b. 新中继（当前默认）
+
+| 项 | 值 | 备注 |
+|----|-----|------|
+| 厂商 | BandwagonHost（搬瓦工），面板 KiwiVM | 2026-09-19 新购 |
+| 公网 IPv4 | `23.106.159.223` | 枢纽默认 REALITY 入站 |
+| SSH | 端口 22，用户 `root` | 本机钥匙 `~/.ssh/id_rsa_banwagong`（Host `bwg-new`） |
+| 系统 | AlmaLinux 9.7 | hostname `perfect-nodes-2` |
+| CPU / 内存 / 盘 | 4 vCPU，约 4 GiB，约 80 GB | 与旧机同档 |
+| 面板 | 3x-ui **v3.8.5**，内核 **Xray 26.6.27**（勿升 26.7+） | 凭据只在该机 `/etc/x-ui/install-result.env` |
+| 入站 | VLESS + REALITY + TCP **443**，dest `www.cloudflare.com`，`minClientVer=1.0.0` | 客户端 email `wzc`（个人）、`node3`（枢纽） |
 | SSH | 端口 22，用户 `root` | 本机钥匙 `~/.ssh/id_rsa_banwagong`（注释 `id_rsa_banwagong`） |
 | 系统 | AlmaLinux 9.7 | hostname `vital-ponies-1` |
 | CPU | 4 vCPU（AMD EPYC-Genoa） | 与电商 4G 档规格一致 |
@@ -82,10 +94,10 @@ REALITY 公钥、shortId、UUID、订阅 ID 以面板/数据库为准，不写�
 
 | 项 | 现状 |
 |----|------|
-| 默认 `PROXY` | `vless-bwg-node3`（本 VPS） |
-| 备用 | 原静态 `vless-35102`；机场 `SUB-AUTO` |
-| provider | `bwg-node3` → 本 VPS 订阅（`proxy: DIRECT`）；种子文件 `/var/lib/mihomo/providers/bwg-node3.yaml` |
-| 直连该 VPS | `IP-CIDR,23.106.154.45/32,DIRECT`（避免系统代理套娃） |
+| 默认 `PROXY` | `vless-bwg-new`（`23.106.159.223`） |
+| 备用 | 旧搬瓦工 `vless-bwg-node3`（`23.106.154.45`，月流量已满）；静态 `vless-35102`；机场 `SUB-AUTO` |
+| provider | `bwg-node3` → 旧 VPS 订阅（`proxy: DIRECT`）；种子文件 `/var/lib/mihomo/providers/bwg-node3.yaml` |
+| 直连中继 IP | `IP-CIDR,23.106.154.45/32,DIRECT` 与 `IP-CIDR,23.106.159.223/32,DIRECT` |
 | 分流 | 仍为 Loyalsoldier `rule-providers`（jsdelivr，`proxy: DIRECT`） |
 
 面板订阅在 UA=`clash.meta` 时仍可能返回 `vless://` 单行，而不是 Clash YAML。因此 **静态节点 + 本地 provider 文件** 必须保留；不要只依赖 HTTP provider 自动转换。
@@ -96,7 +108,7 @@ REALITY 公钥、shortId、UUID、订阅 ID 以面板/数据库为准，不写�
 systemctl restart mihomo
 # 确认默认节点（9090 仅本机，需 secret）
 curl -sS -H "Authorization: Bearer <secret>" http://127.0.0.1:9090/proxies/PROXY
-curl -sS -x http://127.0.0.1:7890 https://api.ipify.org   # 期望 23.106.154.45
+curl -sS -x http://127.0.0.1:7890 https://api.ipify.org   # 期望 23.106.159.223
 ```
 
 API `secret` 在 `config.yaml`，不要贴进文档。
@@ -105,7 +117,7 @@ API `secret` 在 `config.yaml`，不要贴进文档。
 
 ## 4. 本机 Hiddify（对照枢纽规则）
 
-个人流量走客户端 `wzc`，**不要**用 `node3` 的 UUID。规则应对齐枢纽：国内/苹果/iCloud 直连，Google、GFW、非国内 TLD、Telegram 走代理；`23.106.154.45` 直连。
+个人流量走客户端 `wzc`，**不要**用 `node3` 的 UUID。规则应对齐枢纽：国内/苹果/iCloud 直连，Google、GFW、非国内 TLD、Telegram 走代理；中继 IP `23.106.159.223` 与旧机 `23.106.154.45` 均直连。
 
 Clash 规则副本（不含集群密钥）：枢纽文档机上的 Hiddify 目录 `node3-rules-clash.yaml` 由管理员在工作站维护。Hiddify 图形界面里换订阅再连接会覆盖 raw 配置，需要时按副本重新导入。
 
@@ -130,18 +142,18 @@ Clash 规则副本（不含集群密钥）：枢纽文档机上的 Hiddify 目�
 
 | 检查 | 期望 |
 |------|------|
-| `ssh -i ~/.ssh/id_rsa_banwagong -o IdentitiesOnly=yes root@23.106.154.45` | 免密进入 |
+| `ssh -F /dev/null -i ~/.ssh/id_rsa_banwagong -o IdentitiesOnly=yes root@23.106.159.223` 或 Host `bwg-new` | 免密进入新中继 |
 | VPS `ss` | `*:443` 为 xray；`x-ui` 在 2053/2096 |
 | `xray-linux-amd64 version` | 26.6.27 |
 | `config.json` clients | 含 `wzc` 与 `node3`，均有 `flow` |
 | REALITY | `minClientVer` 为 `1.0.0`；dest 为 `www.cloudflare.com:443` |
-| 枢纽出口 | `curl -x http://10.200.1.3:7890 https://api.ipify.org` → `23.106.154.45` |
+| 枢纽出口 | `curl -x http://10.200.1.3:7890 https://api.ipify.org` → `23.106.159.223` |
 | 国内站 | 枢纽规则下百度等应 `DIRECT`，不应消耗 VPS 月流量 |
 
 | 现象 | 处理要点 |
 |------|----------|
 | `reality verification failed` | 核对 SNI/pbk/sid/flow；Xray≥26.7 检查 `minClientVer` |
-| Hiddify 一直超时 | 系统代理不要把 `23.106.154.45` 再送进 `127.0.0.1:12334`；更新订阅 |
+| Hiddify 一直超时 | 系统代理不要把中继 IP 再送进本机代理；更新订阅 |
 | 枢纽仍出旧 IP | `PROXY` 未选中 `vless-bwg-node3`；用 Clash API `PUT` 或重启后确认 `now` |
 | KiwiVM 登录失败 | 网页密码 ≠ root 密码 |
 | 月流量耗尽 | 只看 KiwiVM，不看 3x-ui `total_gb` |

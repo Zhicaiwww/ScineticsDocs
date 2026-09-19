@@ -30,9 +30,9 @@
 **当前运行参数（变更时同步改本节）**
 
 - 枢纽 IP：`PROXY_HUB_IP=10.200.1.3`
-- 默认出站：`vless-bwg-node3` → 搬瓦工 `23.106.154.45:443`（VLESS+REALITY，客户端 email `node3`）
-- 备用出站：静态 `vless-35102`（`45.78.73.163:35102`）；机场 `SUB-AUTO`
-- 该 VPS 必须 `IP-CIDR,23.106.154.45/32,DIRECT`
+- 默认出站：`vless-bwg-new` → 搬瓦工 `23.106.159.223:443`（VLESS+REALITY，客户端 email `node3`）
+- 备用出站：旧机 `vless-bwg-node3`（`23.106.154.45`）；静态 `vless-35102`（`45.78.73.163:35102`）；机场 `SUB-AUTO`
+- 中继 IP 必须 `IP-CIDR,23.106.154.45/32,DIRECT` 与 `IP-CIDR,23.106.159.223/32,DIRECT`
 - 上游机器、带宽/月流量、Xray 版本与排障：**[admin.md](./admin.md)**（密钥仍只在 `/etc/mihomo/` 与 VPS `/etc/x-ui/`）
 - systemd mihomo：**未** `enable`（重启后需手动 `start`，除非另行决定开机自启）
 - 防火墙脚本：`mihomo-firewall.service` **已** `enable`（开机套用 7890 放行）
@@ -156,7 +156,7 @@ TCP **7890**：默认丢弃；仅放行源 `127.0.0.1` 与 `clients.allow` 中�
 | 连到 `127.0.0.1:80` | 订阅内占位节点；`exclude-filter` |
 | 56xx 端口 i/o timeout | 机房出站限制；不得作默认节点 |
 | `reality verification failed`（Hiddify/mihomo） | 见 [admin.md](./admin.md)：Xray 26.7 默认 `minClientVer`、SNI、flow |
-| 枢纽出口不是 `23.106.154.45` | `PROXY` 未选 `vless-bwg-node3` |
+| 枢纽出口不是 `23.106.159.223` | `PROXY` 未选 `vless-bwg-new` |
 | 7890 被占 | 残留用户态 mihomo；上线规范服务前须停掉 |
 | 计算节点 `https_proxy` 指向 `127.0.0.1` | 旧 `profile.d`；应与枢纽同为 `10.200.1.3` |
 
