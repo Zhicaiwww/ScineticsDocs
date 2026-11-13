@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://github.com/OSU-NLP-Group/LLM4Chem/blob/main/README.md",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 2,
+      "url": "https://github.com/OSU-NLP-Group/LLM4Chem/blob/main/compute_metrics.py",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 3,
+      "url": "https://github.com/ChemFoundationModels/ChemLLMBench/blob/main/README.md",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com/ChemFoundationModels/ChemLLMBench/blob/main/data/Readme.md",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 5,
+      "url": "https://arxiv.org/html/2305.18365v3",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 6,
+      "url": "https://arxiv.org/html/2402.09391v2",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 7,
+      "url": "https://github.com/OSU-NLP-Group/LLM4Chem/blob/main/utils/metrics.py",
+      "title": "",
+      "accessed": "2026-11-13"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "scgpt-data",
+    "url": "https://raw.githubusercontent.com/bowang-lab/scGPT/main/data/README.md",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>"
+  },
+  {
+    "slug": "scgpt-paper",
+    "url": "https://www.nature.com/articles/s41592-024-02201-0",
+    "status": 200,
+    "bytes": 404845,
+    "sha256": "07739aa7e0c9998d9421e9ea5a3a8a9c205b52a3566ada7a4324c00c00f22d45"
+  },
+  {
+    "slug": "geneformer-paper",
+    "url": "https://www.nature.com/articles/s41586-023-06139-9",
+    "status": 200,
+    "bytes": 707698,
+    "sha256": "0c829341a9f60e6112a01c4b00235136090dbf9d0cb84766c2cce53d3f26514e"
+  },
+  {
+    "slug": "scgpt-figshare",
+    "url": "https://api.figshare.com/v2/articles/24954519/versions/1",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://github.com/materialsproject/matbench/blob/main/README.md",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 2,
+      "url": "https://github.com/materialsproject/matbench/blob/main/matbench/task.py",
+      "title": "",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 3,
+      "url": "https://github.com/materialsproject/matbench/blob/main/matbench/matbench_v0.1_dataset_metadata.json",
+      "title": "",
+      "accessed": "2026-11-13"
+    }
+  ]
+}

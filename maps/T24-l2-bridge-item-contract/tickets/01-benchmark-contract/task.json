@@ -1,0 +1,54 @@
+{
+  "task_id": "T24-01",
+  "parent_task_id": "benchmark-items-61b03a8e38",
+  "title": "共享L2桥到训练条目的轻量可执行契约",
+  "user_request": "六模态快速小样；只写T24本ticket；真实回执验证2–3桥路径；研究与生产清单分开；不关闭ticket",
+  "project_path": "/nas/nas8/users/wzc/docs",
+  "write_scope": "/nas/nas8/users/wzc/docs/maps/T24-l2-bridge-item-contract/tickets/01-benchmark-contract",
+  "executor": "Hermes focused subagent / gpt-6-astra",
+  "native_session_id": null,
+  "native_session_id_status": "not_exposed_to_subagent; no invented identifier",
+  "process_id": null,
+  "scheduler_run_id": null,
+  "execution_mode": "local lightweight read-only receipt inspection; no persistent job",
+  "log_path": "/nas/nas8/users/wzc/docs/maps/T24-l2-bridge-item-contract/tickets/01-benchmark-contract/verification.json",
+  "status": "draft_delivered_ticket_open",
+  "ticket_status": "open",
+  "human_assignee": null,
+  "updated_at": "2026-11-13T08:40:53.950276+00:00",
+  "baseline_git_commit": "daceecd758b30975cf50b8d37e0541b1dca6b93a",
+  "working_tree": "pre-existing changes; untouched outside ticket",
+  "outputs": [
+    "report.md",
+    "bridge-contract.csv",
+    "brief-draft.md",
+    "task.json",
+    "verify_receipts.py",
+    "verification.json"
+  ],
+  "verification": {
+    "command": "python3 maps/T24-l2-bridge-item-contract/tickets/01-benchmark-contract/verify_receipts.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "counts": {
+      "contract_rows": 9,
+      "modalities": 6,
+      "receipt_bridge_paths": 3,
+      "checks": 19,
+      "new_items": 0
+    },
+    "evidence_level": "local_existing_receipt_recheck; not independent L1 replay"
+  },
+  "research_only": true,
+  "production_admission": "not_evaluated",
+  "source_data_written": false,
+  "published": false,
+  "new_training_samples": 0,
+  "issues": [
+    "Native session ID unavailable; left null",
+    "Formal task-brief register/checker not run: unassigned ticket-scoped draft; no REGISTER write authorized",
+    "Existing receipts support path feasibility, not new L1 replay or full scientific validation",
+    "Six-track benchmark protocol fields are integration hooks, not invented confirmed protocols"
+  ],
+  "acceptance_scope": "Latest explicit request: bridge-contract.csv, not older ticket generic benchmark-contract.csv; shared contract only"
+}

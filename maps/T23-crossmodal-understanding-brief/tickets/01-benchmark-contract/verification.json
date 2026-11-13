@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-11-13T08:41:58.193383+00:00",
+  "status": "PASS_BOUNDED_ARTIFACT_CHECKS",
+  "examples": 3,
+  "unique_source_items": 3,
+  "body_hash_checks": 3,
+  "field_checks_passed": true,
+  "negative_control_rejected": true,
+  "benchmark_scoring_run": false,
+  "model_training_run": false,
+  "global_audit_run": false,
+  "examples_sha256": "b25103dd53bebe8d2a2867fbfa7a9286c16067232143b3ec722478e723d4812e",
+  "limitations": [
+    "Convenience sample of first qualifying records, not representative.",
+    "No model capability claim.",
+    "No cross-source equivalence or global contamination certification."
+  ],
+  "scoped_train_samples": 3,
+  "selection_checksum_verified": true,
+  "selection_scope": "t9-26-local-reference-v1",
+  "scoped_pool_rows_observed": 6407,
+  "drugdiscoverybench_prompt_answer_rubric_reads": 0
+}

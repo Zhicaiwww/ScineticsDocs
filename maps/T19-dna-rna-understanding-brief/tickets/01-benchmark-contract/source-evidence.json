@@ -1,0 +1,39 @@
+{
+  "level_definitions": {
+    "local-original-bytes-verified": "source bytes/fields actually reread",
+    "inherited-primary-paper-extraction": "T14 saved paper extraction; not freshly reproduced",
+    "official-search": "official-source content returned by web_search; page not opened",
+    "cached-official-README": "T14 prior saved official implementation README, current fetch failed"
+  },
+  "network_attempts": [
+    {
+      "method": "urllib direct and documented proxy",
+      "result": "SSL UNEXPECTED_EOF_WHILE_READING for three official repos"
+    },
+    {
+      "method": "web_extract",
+      "result": "configured backend search-only; extraction unavailable"
+    },
+    {
+      "method": "browser",
+      "result": "Chrome missing libatk-1.0.so.0"
+    },
+    {
+      "method": "followup combined web_search/write_file/ledger call",
+      "result": "approval pending; not retried or bypassed"
+    }
+  ],
+  "current_search_results": [
+    {
+      "url": "https://github.com/westlake-repl/SaProt/issues/23",
+      "observed": "Author response says preprocessing changed EC/GO datasets; April18 2024 evaluation flatten bug corrected; no new score adopted",
+      "evidence_type": "search-returned official issue text"
+    },
+    {
+      "url": "https://github.com/ML-Bioinfo-CEITEC/genomic_benchmarks/blob/main/experiments/README.md",
+      "observed": "Official experiments page reports accuracy and F1; separate model result tables",
+      "evidence_type": "search-returned official README text"
+    }
+  ],
+  "source_ledger_status": "pending followup tool approval; no fabricated ledger or fresh-fulltext claim"
+}

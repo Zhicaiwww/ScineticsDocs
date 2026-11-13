@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-11-13T08:47:38.726721+00:00",
+  "required_artifacts": [
+    "report.md",
+    "benchmark-contract.csv",
+    "brief-draft.md",
+    "task.json",
+    "examples.jsonl",
+    "verification.json"
+  ],
+  "artifact_checks": "PASS",
+  "benchmark_rows": 2,
+  "example_rows": 3,
+  "source_snapshot_hashes": "PASS",
+  "source_and_example_schema": "PASS",
+  "draft_unassigned_open": "PASS",
+  "scorer_execution": false,
+  "training_execution": false,
+  "formal_assignment_register_updated": false
+}

@@ -1,0 +1,54 @@
+{
+  "status": "PASS_SCOPED_RESEARCH_CANDIDATE",
+  "updated_at": "2026-11-13T08:45:44.460738+00:00",
+  "process_id": 2883651,
+  "samples": 6,
+  "by_track": {
+    "small_molecule": 6,
+    "reaction": 0
+  },
+  "by_endpoint": {
+    "esol": {
+      "sample_count": 3,
+      "scanned_until_sample": 5,
+      "rejected_test_entity_or_scaffold": 2
+    },
+    "lipo": {
+      "sample_count": 3,
+      "scanned_until_sample": 3,
+      "rejected_test_entity_or_scaffold": 0
+    }
+  },
+  "native_parity_count": 0,
+  "l1_readback_count": 6,
+  "rdkit_version": "2026.09.1",
+  "protected_inputs": [
+    {
+      "path": "/nas/nas7/AI4AI/benchmarks/scientific-v1/prepared/SMolInstruct/raw/test/property_prediction-esol.jsonl",
+      "sha256": "a2035c602139d4f2e596644d868a78ee9ba284d08bd9d3146ee4c0309565451e",
+      "rows": 112,
+      "read_fields": [
+        "input"
+      ],
+      "answers_exported": false
+    },
+    {
+      "path": "/nas/nas7/AI4AI/benchmarks/scientific-v1/prepared/SMolInstruct/raw/test/property_prediction-lipo.jsonl",
+      "sha256": "4b01bf680ae0985e7da5002754a2cab8a86b182154fdb0b9d447f332bb930450",
+      "rows": 420,
+      "read_fields": [
+        "input"
+      ],
+      "answers_exported": false
+    }
+  ],
+  "protected_molecule_keys": 532,
+  "protected_scaffold_keys": 530,
+  "examples_sha256": "e99681784e1c522351894f17227813f98b4e2a215f445bafd872853a91d93d1d",
+  "production_admission": false,
+  "blocked": [
+    "official molecule train/validation membership not established; these are not benchmark-train examples",
+    "reaction HTE native training rows plus fixed test membership/condition mapping not located; no invented yield",
+    "no general test-contamination claim outside the two selected property tasks"
+  ]
+}

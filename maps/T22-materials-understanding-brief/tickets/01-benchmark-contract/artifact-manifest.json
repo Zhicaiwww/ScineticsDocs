@@ -1,0 +1,58 @@
+{
+  "benchmark-contract.csv": {
+    "bytes": 3252,
+    "sha256": "5dce318a98b5499bb54c424c0eb10d21b75469f0d5d7975cc5f6af0cba6f198b"
+  },
+  "brief-draft.md": {
+    "bytes": 3832,
+    "sha256": "0bca0ce774f86b4b9deca6cec4cd3ddf5e5e9c997007430b9f2e44abbeb2db29"
+  },
+  "build_examples.py": {
+    "bytes": 6366,
+    "sha256": "8de4c78367efd09f6975172868ea924072337feb944cfd1a06a8823c47e73eb0"
+  },
+  "delivery-check.json": {
+    "bytes": 1401,
+    "sha256": "5266693a3d4990001be957a019f2058db45d5d6ae32289b1fdb4a076b53c7b28"
+  },
+  "evidence/matbench-metadata.json": {
+    "bytes": 2564,
+    "sha256": "bd8d2962406a1829bda984c38c36b4f3ce6acc20e46d34a42d3ba5294a1df787"
+  },
+  "evidence/matbench-readme.md": {
+    "bytes": 2667,
+    "sha256": "aa3b5225e15d927874dbf796f43f73b38eed05e2114e02b60ed74af8b1d19a24"
+  },
+  "evidence/matbench-task.py": {
+    "bytes": 30981,
+    "sha256": "1fa05aa388de172466e26d3a8a942b662ca6f74a6423422cc219efe470d1b964"
+  },
+  "examples.jsonl": {
+    "bytes": 29579,
+    "sha256": "369e712e8f376316653966406aec7b8270fc50c580bbb3e0d3e1330bd44546c4"
+  },
+  "report.md": {
+    "bytes": 4252,
+    "sha256": "25664e7d4b9ff719dc458c6e09e1252b48473aa8b20501673e365ec1c798e7ee"
+  },
+  "source-retrieval.json": {
+    "bytes": 1573,
+    "sha256": "ed57b56c2332a29211dde8ddaf36ebd883020051694e8adc6c1ff2c257404a2e"
+  },
+  "sources-ledger.json": {
+    "bytes": 557,
+    "sha256": "f3db976da15ede027531ebef340234c0a3127b97e53058571a308814cf00578c"
+  },
+  "task.json": {
+    "bytes": 1099,
+    "sha256": "f722c6483b3530e13a58aba0a8d345c7bd563a55ea334b3718f3419bf80039d7"
+  },
+  "ticket.md": {
+    "bytes": 811,
+    "sha256": "3f64f63b8d26ea5bb28d0b7597a9c363447b3f0015458f86fc1e0f722e292f6b"
+  },
+  "verification.json": {
+    "bytes": 2050,
+    "sha256": "ae7dfd97429970d5602bfba825848a30a56dd2ab5c35a89511363c9b0a4f7082"
+  }
+}

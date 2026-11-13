@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://github.com/materialsproject/matbench/blob/main/README.md",
+    "api_url": "https://api.github.com/repos/materialsproject/matbench/contents/README.md",
+    "git_blob_sha": "c939acf17a9ca16888b0e1bc632ad607170c6328",
+    "sha256": "aa3b5225e15d927874dbf796f43f73b38eed05e2114e02b60ed74af8b1d19a24",
+    "local_path": "/nas/nas8/users/wzc/docs/maps/T22-materials-understanding-brief/tickets/01-benchmark-contract/evidence/matbench-readme.md",
+    "status": "retrieved"
+  },
+  {
+    "url": "https://github.com/materialsproject/matbench/blob/main/matbench/task.py",
+    "api_url": "https://api.github.com/repos/materialsproject/matbench/contents/matbench/task.py",
+    "git_blob_sha": "a366aa871c9bdc28ef5937fd1ee5eee38ca25d9e",
+    "sha256": "1fa05aa388de172466e26d3a8a942b662ca6f74a6423422cc219efe470d1b964",
+    "local_path": "/nas/nas8/users/wzc/docs/maps/T22-materials-understanding-brief/tickets/01-benchmark-contract/evidence/matbench-task.py",
+    "status": "retrieved"
+  },
+  {
+    "url": "https://github.com/materialsproject/matbench/blob/main/matbench/matbench_v0.1_dataset_metadata.json",
+    "api_url": "https://api.github.com/repos/materialsproject/matbench/contents/matbench/matbench_v0.1_dataset_metadata.json",
+    "git_blob_sha": "47a7368fafe57332c2b83fdce79e4fd89b4143af",
+    "sha256": "bd8d2962406a1829bda984c38c36b4f3ce6acc20e46d34a42d3ba5294a1df787",
+    "local_path": "/nas/nas8/users/wzc/docs/maps/T22-materials-understanding-brief/tickets/01-benchmark-contract/evidence/matbench-metadata.json",
+    "status": "retrieved"
+  }
+]

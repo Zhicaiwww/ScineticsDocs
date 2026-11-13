@@ -1,0 +1,17 @@
+{
+  "contract_rows": 5,
+  "example_rows": 2,
+  "brief_is_draft": true,
+  "assignee_null": true,
+  "map_not_written_by_script": true,
+  "benchmark_executed": false,
+  "production_ready": false,
+  "artifact_sha256": {
+    "report.md": "7f92f8980c07ed6054ae82231656e563d8447084a8205b6be0cdbbdf9cfdd702",
+    "brief-draft.md": "47a24117e7a4a6b6b7055a9abfbe78d179633df70c0bd29b19ef9a3a6364230e",
+    "benchmark-contract.csv": "dff82f74a17c4cb806cdfa632f6354da12a7c9ea62aabe87a587d38e09d92c91",
+    "examples.jsonl": "5d8986bddf5dd8db562c344397f78471aa9946597bf72f884a7ab00d33c3f151",
+    "verification.json": "863085fda2064b69743e27c9f25e8abf12f3a66104338100133015d12fdc97c4",
+    "source-evidence.json": "3a11cbd4bfd213af8c09c225f010e3c59744d6cd95b2cde4c96d2debc0aaaff6"
+  }
+}

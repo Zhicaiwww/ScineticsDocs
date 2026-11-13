@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-13T08:43:54.143147+00:00",
+  "artifact_status": "PARTIAL_RESEARCH_SMOKE",
+  "row_count": 3,
+  "examples_sha256": "a2f054b96d70d93d378cebdaac2383b19e82ff2ef535ea49aa8d854cfa1bd1ec",
+  "deterministic_rebuild_equal": true,
+  "roundtrip_equal": true,
+  "checks": {
+    "dna_rows": 2,
+    "rna_rows": 1,
+    "supervised_native_label_rows": 2,
+    "semantic_label_mapping_verified": false,
+    "nt_train_sha256": "6cd196d979f96098a61a0bbb318831c6fdf43bdf7814dab2a0d8aaaa5ed4aa36",
+    "rna_raw_sha256": "9c14ca3945b53200631f5968faaaac98735a0998bdd18a5b60898f781f1963d7",
+    "protected_registry_path": "/nas/nas6/users/wzc/datasets/training-items-v1/t9-07-gene-rna-20261111/protected/nuc_sha256_broad.json",
+    "protected_registry_sha256": "fc6ea215e3dc718338f3a3acc10479ddb0faeeda18d09e2cba72294895693da9",
+    "protected_hashes": 157569,
+    "rna_protected_hits": 0,
+    "test_rows_read": 0,
+    "test_answers_read": 0,
+    "source_record_id": "9648aba423ff66ac49c4b9b8dc1782f536d077776f1740c25ea26c61631ef7f7:000046195912"
+  },
+  "benchmark_score_run": false,
+  "production_admission": false,
+  "executor_run_id": null,
+  "session_id": null,
+  "process_id": 2873342,
+  "host": "n01",
+  "python": "/nas/nas8/users/wzc/envs/scinetics-data/bin/python"
+}

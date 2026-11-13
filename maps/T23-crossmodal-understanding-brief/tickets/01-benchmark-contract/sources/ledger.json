@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://arxiv.org/html/2204.11817v3",
+      "title": "molt5-paper-v3",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 2,
+      "url": "https://github.com/scaleapi/DrugDiscoveryBench",
+      "title": "ddb-repo",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 3,
+      "url": "https://github.com/IDEA-XL/MoleculeQA",
+      "title": "moleculeqa-repo",
+      "accessed": "2026-11-13"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com/blender-nlp/MolT5",
+      "title": "molt5-repo",
+      "accessed": "2026-11-13"
+    }
+  ]
+}

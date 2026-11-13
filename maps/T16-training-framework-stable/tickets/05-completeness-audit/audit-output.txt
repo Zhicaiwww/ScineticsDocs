@@ -1,0 +1,82 @@
+BASE 35f9646fb5ca3fd95ca47e862b124bc940c97117
+worktree /nas/nas8/users/wzc/code/scinetics
+HEAD 294215578a7e265ea5ef2e977a568fa8fcd33fdd
+branch refs/heads/main
+
+worktree /nas/nas8/users/wzc/code/scinetics-node7-v16
+HEAD 25bed62a373f1d1e279730da4bb19e1f11fec91f
+branch refs/heads/codex/node7-full-speed-v16
+
+worktree /nas/nas8/users/wzc/code/scinetics-packmix-v22
+HEAD 655a0ea76e43fd02a21cc77110277905ea68bbe7
+branch refs/heads/codex/packmix-v22
+
+worktree /nas/nas8/users/wzc/code/scinetics-spike-v20
+HEAD c9f3350e35f5a495c1dcd55f77d53cc07d19dd51
+branch refs/heads/codex/spike-diagnosis-v20
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/cpt-stable-20261027
+HEAD d377bdd5cef9f257ebc6606950a641fa3d8d14a5
+branch refs/heads/codex/cpt-stable-08b-2b-20261027
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/t16-encoder-features-20261113
+HEAD 2d324234ba4b216f2e3d57a0140942f7f03e2d63
+branch refs/heads/feat/encoder-features-20261113
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/t16-stable-35f9646
+HEAD 35f9646fb5ca3fd95ca47e862b124bc940c97117
+detached
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/t17-multimodal-tokenizer-20261113
+HEAD 35f9646fb5ca3fd95ca47e862b124bc940c97117
+branch refs/heads/feat/multimodal-tokenizer-20261113
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/tool-sft-runtime-20261028
+HEAD f4b2aa5abf67b456787869751b213e93d7e4eece
+branch refs/heads/feat/tool-sft-runtime-20261028
+
+worktree /nas/nas8/users/wzc/code/scinetics-worktrees/v23-resume-24gpu-20261025
+HEAD fc608e93ee1445b0b5c3c96bceeb7fa86ea2e3f7
+branch refs/heads/codex/v23-resume-24gpu-20261025
+
+worktree /nas/nas8/users/wzc/code/scinetics/.worktrees/pt-stability-20261019
+HEAD bfd27c123f4d5be80e5e68a74e9707980a0b68d1
+branch refs/heads/codex/pt-stability-20261019
+
+worktree /nas/nas8/users/wzc/code/scinetics/.worktrees/token-loss-safety
+HEAD 99aebc5336dc7e295843872bc95a6dca1927e041
+branch refs/heads/codex/token-loss-safety
+
+worktree /nas/nas8/users/wzc/code/scinetics/.worktrees/v22-successor-node3
+HEAD af753d488eab4ce731c6330ba0910314a1a73fa5
+branch refs/heads/codex/v22-successor-node3
+
+--- branches ahead of base ---
+2 archive/scinetics-reproduction-20260921
+8 archive/worktrees-20261019/scinetics-cpt-2b-tps-20261017
+8 codex/cpt-2b-tps-20261017
+42 codex/fp8-merge-gates-20261024
+43 codex/fp8-perf-node16-20261025
+1 codex/packmix-v22
+5 codex/pt-stability-20261019
+2 codex/spike-diagnosis-v20
+1 codex/token-loss-safety
+41 codex/v22-successor-node3
+3 codex/v23-resume-24gpu-20261025
+1 feat/encoder-features-20261113
+2 feat/tool-sft-runtime-20261028
+2 origin/archive/scinetics-reproduction-20260921
+2 origin/feat/encoder-features-20261113
+3 origin/main
+2 personal/main
+--- file-level comparison for named branches ---
+codex/fp8-perf-node16-20261025	 65 files changed, 5884 insertions(+), 45 deletions(-)
+codex/fp8-merge-gates-20261024	 65 files changed, 5861 insertions(+), 37 deletions(-)
+codex/v22-successor-node3	 61 files changed, 5510 insertions(+), 37 deletions(-)
+codex/cpt-2b-tps-20261017	 10 files changed, 599 insertions(+)
+codex/pt-stability-20261019	 15 files changed, 993 insertions(+)
+codex/v23-resume-24gpu-20261025	 10 files changed, 808 insertions(+), 1 deletion(-)
+feat/tool-sft-runtime-20261028	 16 files changed, 1036 insertions(+), 12 deletions(-)
+codex/spike-diagnosis-v20	 5 files changed, 117 insertions(+), 2 deletions(-)
+codex/token-loss-safety	 14 files changed, 447 insertions(+), 2 deletions(-)
+codex/packmix-v22	 8 files changed, 242 insertions(+), 4 deletions(-)

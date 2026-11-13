@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "at": "2026-11-13T08:51:58.595493+00:00",
+  "process_id": 2917202,
+  "sample_count": 9,
+  "contract_count": 3,
+  "l1_independent_readback": [
+    {
+      "item_id": "matbench_steels:fold_0:mb-steels-001",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_steels:fold_0:mb-steels-002",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_steels:fold_0:mb-steels-004",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_expt_gap:fold_0:mb-expt-gap-0001",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_expt_gap:fold_0:mb-expt-gap-0002",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_expt_gap:fold_0:mb-expt-gap-0003",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_dielectric:fold_0:mb-dielectric-0001",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_dielectric:fold_0:mb-dielectric-0002",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "matbench_dielectric:fold_0:mb-dielectric-0003",
+      "source_fields_equal": true
+    }
+  ],
+  "required_files_present": [
+    "report.md",
+    "benchmark-contract.csv",
+    "brief-draft.md",
+    "task.json",
+    "examples.jsonl",
+    "verification.json"
+  ],
+  "ticket_status": "open",
+  "source_checks_do_not_imply_production_admission": true
+}

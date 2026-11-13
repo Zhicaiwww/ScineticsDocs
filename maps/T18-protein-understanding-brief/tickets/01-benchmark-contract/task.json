@@ -1,0 +1,41 @@
+{
+  "task_id": "T18-01",
+  "coordinator_task_id": "benchmark-items-61b03a8e38",
+  "request": "快速形成独立能力/benchmark/条目方案并构造真实可复现小样；不改map.md",
+  "project_path": "/nas/nas8/users/wzc/docs",
+  "allowed_write_directory": "/nas/nas8/users/wzc/docs/maps/T18-protein-understanding-brief/tickets/01-benchmark-contract",
+  "executor": "Hermes focused subagent (gpt-6-astra); bounded local Python",
+  "native_session_id": null,
+  "executor_run_id": null,
+  "scheduler_job_id": null,
+  "process_id": 2873342,
+  "process_id_kind": "completed local builder PID, not task ID",
+  "host": "n01",
+  "status": "partial_deliverables; ticket remains open",
+  "assignee": null,
+  "reviewer": null,
+  "brief_status": "draft",
+  "updated_at": "2026-11-13T08:49:13.045142+00:00",
+  "log_location": "/nas/nas8/users/wzc/docs/maps/T18-protein-understanding-brief/tickets/01-benchmark-contract/verification.json",
+  "python": "/nas/nas8/users/wzc/envs/scinetics-data/bin/python",
+  "reproduction_script": "/nas/nas8/users/wzc/docs/maps/T19-dna-rna-understanding-brief/tickets/01-benchmark-contract/build_examples.py",
+  "reproduction_script_sha256": "311892e85ed50e5f17579f104bf24d423df0ca5210c4c18521c2c9aa85e16c1a",
+  "counts": {
+    "examples": 2,
+    "benchmark_contract_rows": 5
+  },
+  "external_approval_pending": true,
+  "not_done": [
+    "full primary-source/scorer verification",
+    "supervised target completeness",
+    "production admission"
+  ],
+  "artifacts": {
+    "report.md": "7f92f8980c07ed6054ae82231656e563d8447084a8205b6be0cdbbdf9cfdd702",
+    "brief-draft.md": "47a24117e7a4a6b6b7055a9abfbe78d179633df70c0bd29b19ef9a3a6364230e",
+    "benchmark-contract.csv": "dff82f74a17c4cb806cdfa632f6354da12a7c9ea62aabe87a587d38e09d92c91",
+    "examples.jsonl": "5d8986bddf5dd8db562c344397f78471aa9946597bf72f884a7ab00d33c3f151",
+    "verification.json": "863085fda2064b69743e27c9f25e8abf12f3a66104338100133015d12fdc97c4",
+    "source-evidence.json": "3a11cbd4bfd213af8c09c225f010e3c59744d6cd95b2cde4c96d2debc0aaaff6"
+  }
+}

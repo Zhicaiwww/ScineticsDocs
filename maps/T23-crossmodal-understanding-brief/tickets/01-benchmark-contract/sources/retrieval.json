@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "molt5-readme",
+    "url": "https://raw.githubusercontent.com/blender-nlp/MolT5/main/README.md",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>"
+  },
+  {
+    "slug": "molt5-paper",
+    "url": "https://arxiv.org/html/2204.11817v5",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "moleculeqa-readme",
+    "url": "https://raw.githubusercontent.com/hcaoaf/MoleculeQA/main/README.md",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>"
+  },
+  {
+    "slug": "ddb-readme",
+    "url": "https://raw.githubusercontent.com/scaleapi/DrugDiscoveryBench/main/README.md",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>"
+  },
+  {
+    "slug": "biomatrix-readme",
+    "url": "https://raw.githubusercontent.com/QizhiPei/BioMatrix/main/README.md",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>"
+  }
+]

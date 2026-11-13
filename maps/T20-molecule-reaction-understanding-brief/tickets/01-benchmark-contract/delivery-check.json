@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "at": "2026-11-13T08:51:54.721760+00:00",
+  "process_id": 2917202,
+  "sample_count": 6,
+  "contract_count": 4,
+  "l1_independent_readback": [
+    {
+      "item_id": "moleculenet:esol:9bcd27e10bede260e1fc:2",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "moleculenet:esol:9bcd27e10bede260e1fc:3",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "moleculenet:esol:9bcd27e10bede260e1fc:4",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "moleculenet:lipo:a69f48d636e04f671897:0",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "moleculenet:lipo:a69f48d636e04f671897:1",
+      "source_fields_equal": true
+    },
+    {
+      "item_id": "moleculenet:lipo:a69f48d636e04f671897:2",
+      "source_fields_equal": true
+    }
+  ],
+  "required_files_present": [
+    "report.md",
+    "benchmark-contract.csv",
+    "brief-draft.md",
+    "task.json",
+    "examples.jsonl",
+    "verification.json"
+  ],
+  "ticket_status": "open",
+  "source_checks_do_not_imply_production_admission": true
+}

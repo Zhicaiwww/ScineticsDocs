@@ -1,0 +1,30 @@
+{
+  "task_id": "T21-01",
+  "parent_task_id": "benchmark-items-61b03a8e38",
+  "user_request": "快速benchmark契约、真实独立小样与任务书草案；不训练不关闭ticket",
+  "project_path": "/nas/nas8/users/wzc/docs",
+  "executor": "Hermes focused subagent / gpt-6-astra",
+  "native_session_id": null,
+  "native_session_note": "Runtime did not expose a native session ID; not invented.",
+  "execution": {
+    "mode": "local read-only small-sample inspection",
+    "pid_at_build": 2864103,
+    "scheduler_run_id": null,
+    "gpu_used": false
+  },
+  "status": "draft",
+  "assignee": null,
+  "reviewer": null,
+  "ticket_status": "open",
+  "log_path": "/nas/nas8/users/wzc/docs/maps/T21-cell-understanding-brief/tickets/01-benchmark-contract/verification.json",
+  "updated_at": "2026-11-13T08:41:58.193383+00:00",
+  "artifacts": [
+    "report.md",
+    "benchmark-contract.csv",
+    "brief-draft.md",
+    "task.json",
+    "examples.jsonl",
+    "verification.json"
+  ],
+  "scope": "independent research pilot, no L1/L2/frozen release writes"
+}

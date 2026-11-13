@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-13T08:43:51.871341+00:00",
+  "artifact_status": "PARTIAL_RESEARCH_SMOKE",
+  "row_count": 2,
+  "examples_sha256": "5d8986bddf5dd8db562c344397f78471aa9946597bf72f884a7ab00d33c3f151",
+  "deterministic_rebuild_equal": true,
+  "roundtrip_equal": true,
+  "checks": {
+    "source_bytes": 3573,
+    "source_records": 1,
+    "sequence_rows": 1,
+    "structure_rows": 1,
+    "supervised_rows": 0
+  },
+  "benchmark_score_run": false,
+  "production_admission": false,
+  "executor_run_id": null,
+  "session_id": null,
+  "process_id": 2873342,
+  "host": "n01",
+  "python": "/nas/nas8/users/wzc/envs/scinetics-data/bin/python"
+}

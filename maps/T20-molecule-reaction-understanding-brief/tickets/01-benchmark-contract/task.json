@@ -1,0 +1,25 @@
+{
+  "task_id": "T20-01",
+  "coordinator_task_id": "benchmark-items-61b03a8e38",
+  "request": "独立benchmark契约与真实本地小样；不修改map、不关闭ticket",
+  "project": "/nas/nas8/users/wzc/docs",
+  "executor": "Hermes focused subagent / gpt-6-astra",
+  "native_session_id": null,
+  "session_id_status": "runtime未暴露，不虚构",
+  "process_id": 2883651,
+  "scheduler_job_id": null,
+  "log_location": "/nas/nas8/users/wzc/docs/maps/T20-molecule-reaction-understanding-brief/tickets/01-benchmark-contract/delivery-check.json",
+  "updated_at": "2026-11-13T08:51:32.475602+00:00",
+  "status": "delivered_scoped; ticket_open",
+  "assignee": null,
+  "write_scope": "/nas/nas8/users/wzc/docs/maps/T20-molecule-reaction-understanding-brief/tickets/01-benchmark-contract/",
+  "production_write": false,
+  "process_state": "exited_0",
+  "real_examples": 6,
+  "production_training_ready": false,
+  "blockers": [
+    "official molecule train/validation membership not established; these are not benchmark-train examples",
+    "reaction HTE native training rows plus fixed test membership/condition mapping not located; no invented yield",
+    "no general test-contamination claim outside the two selected property tasks"
+  ]
+}

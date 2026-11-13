@@ -1,6 +1,6 @@
-# 训练框架稳定版本介绍（候选，T16-02 通过前不算稳定）
+# 训练框架稳定版本介绍
 
-**稳定对象**：`ScineticsAI/scinetics` origin/main `35f9646`（含 PR #3 `1c862c3`、PR #4 `d377bdd`）。本页的数字全部沿用仓库 `docs/MODEL_TRAINING.md` 与 `CHANGELOG.md` 的旧记录，**本 map 内尚未重跑**。
+**稳定对象**：`ScineticsAI/scinetics` origin/main `35f9646`（含 PR #3 `1c862c3`、PR #4 `d377bdd`）。本页区分本 map 的 2026-11-13 短测与沿用旧记录。
 
 ## 能力
 - 统一入口 `train.py train RECIPE --runtime RUNTIME`：Qwen3.5-0.8B、2B（以及 9B 配方）的语言 CPT，严格模型 profile、冻结数据 reader、完整状态保存与恢复、原生权重导出。
@@ -12,7 +12,7 @@
 ## 已有验证（旧记录，指向仓库文档）
 | 项 | 结果 | 边界 |
 |---|---|---|
-| 0.8B BF16 / FP8 | 四卡各 10 步，FP8 66/66 区域，loss/grad 有限，step2→10 恢复，473 张量原生导出严格读回 | 有界集成验收，不是长程质量 |
+| 0.8B BF16 / FP8 | 本 map 短测四卡各 10 步，loss/grad 有限；FP8 `run/fp8-coverage.json` 为 66/66（24 fused MLP + 42 other linear），终点 train_loss 2.4401/2.4475，相对差 0.303% | 本次未重跑 step2→10 与 473 张量导出；恢复/导出沿用旧记录 |
 | 2B TE FP8 | 四卡 11.69 小时至 step4706，step2→4 恢复，导出前向通过 | 绑定当时的数据、环境、源码 |
 | 2B 跨布局续训 | 8→24 卡，状态样本匹配，继续更新至 phase 3795，loss/grad 有限 | 改 batch 后轨迹不等价；被外部 SIGTERM 停止，最近完整保存点 3500 |
 | CPU | 100 项单测（98 通过，2 跳过），221 文件身份通过 | 禁用 GPU |

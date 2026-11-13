@@ -1,0 +1,54 @@
+{
+  "status": "PASS_SCOPED_LOCAL_SAMPLE",
+  "updated_at": "2026-11-13T08:44:04.698401+00:00",
+  "process_id": 2874825,
+  "samples": 9,
+  "by_dataset": {
+    "matbench_steels": 3,
+    "matbench_expt_gap": 3,
+    "matbench_dielectric": 3
+  },
+  "fold": "fold_0",
+  "source_input_target_equal": 9,
+  "test_identity_scope": "three selected tasks, fold_0, source index/mbid and normalized composition; no test labels exported",
+  "test_composition_keys": 1872,
+  "parse_issues": [],
+  "inputs": {
+    "matbench_steels": {
+      "l1_path": "/nas/nas6/users/wzc/datasets/matbench_steels/l1/20261112-t14/units/input-d46ef8652f8dce6840f7/data/part-00000.parquet",
+      "l1_sha256": "e5d7f3a91edccf1a58fb7c6f38e26df750521e7768f39d5c66ff14b3ecf471ea",
+      "rows": 312,
+      "fold": "fold_0",
+      "train_val_ids": 249,
+      "test_ids": 63,
+      "id_overlap": 0
+    },
+    "matbench_expt_gap": {
+      "l1_path": "/nas/nas6/users/wzc/datasets/matbench_expt_gap/l1/20261112-t14/units/input-7bc440e58aea5c7b798e/data/part-00000.parquet",
+      "l1_sha256": "5b7c1000f114168672b154c52bf9b255b2e8aa3cff3213ef7508f8c8ba6d9dd9",
+      "rows": 4604,
+      "fold": "fold_0",
+      "train_val_ids": 3683,
+      "test_ids": 921,
+      "id_overlap": 0
+    },
+    "matbench_dielectric": {
+      "l1_path": "/nas/nas6/users/wzc/datasets/matbench_dielectric/l1/20261112-t14/units/input-2b1048c8237b7b6d7956/data/part-00000.parquet",
+      "l1_sha256": "e3d58025fe89c12c4e8648c5222a7b151b226430b3601b1e504e6f1267b8a96f",
+      "rows": 4764,
+      "fold": "fold_0",
+      "train_val_ids": 3811,
+      "test_ids": 953,
+      "id_overlap": 0
+    }
+  },
+  "protocol_sha256": "94c17bc3dac32c67d33d69289927a5fec174497e74bbc47293e23d3d147e9a6d",
+  "examples_sha256": "369e712e8f376316653966406aec7b8270fc50c580bbb3e0d3e1330bd44546c4",
+  "production_admission": false,
+  "unverified": [
+    "other folds and other 10 tasks not joint-training cleared",
+    "same-composition polymorph/structure equivalence not inferred",
+    "conditions absent",
+    "scorer/model not run"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-11-13T08:41:58.193383+00:00",
+  "status": "PASS_BOUNDED_ARTIFACT_CHECKS",
+  "examples": 3,
+  "unique_source_items": 3,
+  "body_hash_checks": 3,
+  "field_checks_passed": true,
+  "negative_control_rejected": true,
+  "benchmark_scoring_run": false,
+  "model_training_run": false,
+  "global_audit_run": false,
+  "examples_sha256": "435e82ada44b49f127cc84aa29852fc0ba756c793ff72d8554037635cebcecde",
+  "limitations": [
+    "Convenience sample of first qualifying records, not representative.",
+    "No model capability claim.",
+    "No cross-source equivalence or global contamination certification."
+  ],
+  "expression_samples": 0,
+  "study_summary_samples": 3,
+  "training_eligible_samples": 0,
+  "blocker": "Exact hPancreas/CINEMA payload absent; only prior http-error metadata present in bounded candidate paths.",
+  "bounded_path_checks": {
+    "/nas/nas6/users/wzc/datasets/_incoming-t14/hpancreas": {
+      "h5ad_files": [],
+      "errors": [
+        {
+          "file": "/nas/nas6/users/wzc/datasets/_incoming-t14/hpancreas/demo_train.h5ad.http.json",
+          "returncode": 28,
+          "stderr": "curl: (28) Failed to connect to drive.usercontent.google.com port 443 after 15212 ms: Connection timed out\n"
+        }
+      ]
+    },
+    "/nas/nas6/users/wzc/datasets/_incoming-t14/hpancreas_figshare_v1": {
+      "h5ad_files": [],
+      "errors": [
+        {
+          "file": "/nas/nas6/users/wzc/datasets/_incoming-t14/hpancreas_figshare_v1/archive.http.json",
+          "returncode": 22,
+          "stderr": "curl: (22) The requested URL returned error: 403\n"
+        }
+      ]
+    },
+    "/nas/nas6/users/wzc/datasets/_incoming-t14/cinema_ot": {
+      "h5ad_files": [],
+      "errors": [
+        {
+          "file": "/nas/nas6/users/wzc/datasets/_incoming-t14/cinema_ot/Integrated_raw.h5ad.http.json",
+          "returncode": 22,
+          "stderr": "curl: (22) The requested URL returned error: 403\n"
+        }
+      ]
+    }
+  }
+}

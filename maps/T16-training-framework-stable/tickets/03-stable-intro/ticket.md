@@ -2,7 +2,7 @@
 id: T16-03
 title: 稳定版本的介绍页写什么，范围与缺口是否如实？
 type: task
-status: open
+status: resolved (t16-codex-driver, 2026-11-13T07:30:00Z)
 blocked_by: [T16-02]
 updated: 2026-11-13T07:00:13Z
 ---
@@ -16,3 +16,7 @@ updated: 2026-11-13T07:00:13Z
 
 ## Log
 - 2026-11-13T07:00:13Z (desk) 开票；初稿见 intro.md（基于旧记录，T16-02 之前不算稳定）。
+
+## Answer
+
+`intro.md` 已更新，区分本次 T16-02 短测与沿用旧记录，并明确 4B、多节点和未重跑门槛不作结论；FP8 覆盖证据引用 `run/fp8-coverage.json`。

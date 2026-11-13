@@ -1,0 +1,71 @@
+{
+  "scope": "four known USPTO L1 units metadata only; no reaction labels exported",
+  "units": [
+    {
+      "unit_path": "/nas/nas6/users/wzc/datasets/l1-v3/f1/uspto-rxn-interleaved/fc1a545c705e3d93b2cd/unit.json",
+      "source": {
+        "schema_version": "l1-modal-records-v1",
+        "dataset": "uspto-rxn-interleaved",
+        "source_uri": "/nas/nas6/jiaxianyan/RSI-BioMatrix-data/uspto/USPTO_RXN_Interleaved/Interleaved/data-00003-of-00004.arrow",
+        "source_version": "local-snapshot-20261030",
+        "record_kind": "table"
+      },
+      "fields": [
+        "pid",
+        "molecules",
+        "text"
+      ],
+      "records": 397177
+    },
+    {
+      "unit_path": "/nas/nas6/users/wzc/datasets/l1-v3/f1/uspto-rxn-interleaved/b69a28be6b24168707d1/unit.json",
+      "source": {
+        "schema_version": "l1-modal-records-v1",
+        "dataset": "uspto-rxn-interleaved",
+        "source_uri": "/nas/nas6/jiaxianyan/RSI-BioMatrix-data/uspto/USPTO_RXN_Interleaved/Interleaved/data-00002-of-00004.arrow",
+        "source_version": "local-snapshot-20261030",
+        "record_kind": "table"
+      },
+      "fields": [
+        "pid",
+        "molecules",
+        "text"
+      ],
+      "records": 397177
+    },
+    {
+      "unit_path": "/nas/nas6/users/wzc/datasets/l1-v3/f1/uspto-rxn-interleaved/896ebd2a90e9e5612309/unit.json",
+      "source": {
+        "schema_version": "l1-modal-records-v1",
+        "dataset": "uspto-rxn-interleaved",
+        "source_uri": "/nas/nas6/jiaxianyan/RSI-BioMatrix-data/uspto/USPTO_RXN_Interleaved/Interleaved/data-00000-of-00004.arrow",
+        "source_version": "local-snapshot-20261030",
+        "record_kind": "table"
+      },
+      "fields": [
+        "pid",
+        "molecules",
+        "text"
+      ],
+      "records": 397178
+    },
+    {
+      "unit_path": "/nas/nas6/users/wzc/datasets/l1-v3/f1/uspto-rxn-interleaved/199991d92f6bc7e56974/unit.json",
+      "source": {
+        "schema_version": "l1-modal-records-v1",
+        "dataset": "uspto-rxn-interleaved",
+        "source_uri": "/nas/nas6/jiaxianyan/RSI-BioMatrix-data/uspto/USPTO_RXN_Interleaved/Interleaved/data-00001-of-00004.arrow",
+        "source_version": "local-snapshot-20261030",
+        "record_kind": "table"
+      },
+      "fields": [
+        "pid",
+        "molecules",
+        "text"
+      ],
+      "records": 397177
+    }
+  ],
+  "hte_train_path": "unknown",
+  "sample_count": 0
+}

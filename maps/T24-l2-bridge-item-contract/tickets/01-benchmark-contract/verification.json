@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-13T08:40:20.849026+00:00",
+  "scope": "existing_local_receipts_and_contract_only",
+  "checks": [
+    {
+      "name": "nine_unique_contract_rows",
+      "pass": true
+    },
+    {
+      "name": "six_modalities",
+      "pass": true
+    },
+    {
+      "name": "three_bridge_paths",
+      "pass": true
+    },
+    {
+      "name": "three_routes",
+      "pass": true
+    },
+    {
+      "name": "all_contract_cells_nonempty",
+      "pass": true
+    },
+    {
+      "name": "evidence_files_exist",
+      "pass": true
+    },
+    {
+      "name": "GO_receipt_count_conservation",
+      "pass": true
+    },
+    {
+      "name": "GO_unique_and_isoform_hold",
+      "pass": true
+    },
+    {
+      "name": "protein_receipt_100_and_fragments",
+      "pass": true
+    },
+    {
+      "name": "RNA_receipt_400_equal",
+      "pass": true
+    },
+    {
+      "name": "RNA_held_difference",
+      "pass": true
+    },
+    {
+      "name": "gene_receipt_520_equal",
+      "pass": true
+    },
+    {
+      "name": "BDB_receipt_400_items_3667_lines",
+      "pass": true
+    },
+    {
+      "name": "empty_aseq_not_claimed_as_replay",
+      "pass": true
+    },
+    {
+      "name": "protection_candidate_union",
+      "pass": true
+    },
+    {
+      "name": "unknown_never_train",
+      "pass": true
+    },
+    {
+      "name": "ambiguity_no_unique_answer",
+      "pass": true
+    },
+    {
+      "name": "exact_key_not_production",
+      "pass": true
+    },
+    {
+      "name": "existing_denial_preserved",
+      "pass": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "maps/T9-item-card/tickets/10-protein-bridge-facets/results/bridge_check.json",
+      "sha256": "557b173ecc5d751fe883af81d87ccb6436842cb06ec94a2b87e2d331a6d5cd0d",
+      "bytes": 1972
+    },
+    {
+      "path": "maps/T9-item-card/tickets/10-protein-bridge-facets/results/replay_swissprot.json",
+      "sha256": "c0922c1bf8db5cdf262d021a22dd91c686f17de1f4912c9573eea932f4b24b54",
+      "bytes": 148
+    },
+    {
+      "path": "maps/T9-item-card/tickets/17-gene-rna-real-merging/results/verify_links_f.json",
+      "sha256": "fd3efe127e16baca979b1ddf67824487d309b9e686b7814483f9d126602274aa",
+      "bytes": 366
+    },
+    {
+      "path": "maps/T9-item-card/tickets/17-gene-rna-real-merging/results/replay_gene3.json",
+      "sha256": "e03d5e7d4e3ff0d583762b7783abf304f51809f2d119157fc5bdef90c5dea5e5",
+      "bytes": 479
+    },
+    {
+      "path": "maps/T9-item-card/tickets/19-relation-measurement-facets/results/replay_released_n400_zeroledger.json",
+      "sha256": "3db34cdd86f166bfd9eaaa86aee779bfc533011c2047b552efb6f52c4ac166f4",
+      "bytes": 713
+    },
+    {
+      "path": "data/v1/02-scientific-evidence/l2.md",
+      "sha256": "88da69d9d771be64d0fe2d9a145698ead3ce1060206a0098da9deff4ad72c727",
+      "bytes": 6566
+    },
+    {
+      "path": "data/v1/layers.md",
+      "sha256": "0f759e975a70570f0a057e7509fe2511a50473157e55f93a224d5aad78d2a136",
+      "bytes": 5153
+    },
+    {
+      "path": "data/v1/03-tasks-samples/training-item.md",
+      "sha256": "3f9caca853f907653cb5c2497090296426d54e8829a14e08643569be988b78ba",
+      "bytes": 93127
+    },
+    {
+      "path": "data/v1/reports/20261108-bridge-expansion.md",
+      "sha256": "479445dcb839ada3f8f3e2ef84dd670eefe48833481e52cf008deea66d61e536",
+      "bytes": 8550
+    },
+    {
+      "path": "maps/T9-item-card/tickets/19-relation-measurement-facets/code/r3_resolve.py",
+      "sha256": "3a8691b4244226faa20b295d0a8b78a785b25a4385fb6dfb8c4fa155ee3a50eb",
+      "bytes": 11907
+    },
+    {
+      "path": "maps/T9-item-card/tickets/19-relation-measurement-facets/code/relib.py",
+      "sha256": "f90d69224f545298c2453a4f54a752d35efa94653eaa40ef601e632f620e1f0b",
+      "bytes": 7116
+    },
+    {
+      "path": "maps/T9-item-card/tickets/17-gene-rna-real-merging/code/verify_links.py",
+      "sha256": "9fed35742a0730335d95a54a58a8ac2ac6b2c94786eb58dfbee8c6ea4b1db08f",
+      "bytes": 3117
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "report.md",
+      "sha256": "c5a569bca99622c478ae9570c79fdb061e30d9b51b2851eede25374c6abdda98",
+      "bytes": 10046
+    },
+    {
+      "path": "bridge-contract.csv",
+      "sha256": "2d0f62543405a654afffe472e9de2bbc3a08f56adee531e776d7ae9b48b1bbdc",
+      "bytes": 6055
+    },
+    {
+      "path": "brief-draft.md",
+      "sha256": "1d8f6aac937834fa8eec9fc430ac764e2f27a34c717e7d582e8f3f401743f773",
+      "bytes": 4889
+    },
+    {
+      "path": "verify_receipts.py",
+      "sha256": "7826b0a57fec78d96974c1639e7cdd70aa0ef750e235e54c2cfca983a5ca9108",
+      "bytes": 5609
+    }
+  ],
+  "counts": {
+    "contract_rows": 9,
+    "modalities": 6,
+    "receipt_bridge_paths": 3,
+    "checks": 19,
+    "new_items": 0
+  },
+  "limits": [
+    "No new L1 replay or scientific identity validation",
+    "Metadata policy probes are not source samples",
+    "No source writes, training, full scans or publication",
+    "No production admission; ticket remains open"
+  ]
+}
